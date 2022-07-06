@@ -1,0 +1,59 @@
+.main_title{
+    color:red;
+    line-height:4px;
+}
+.commend_title{
+    color:red;
+    line-height:25px;
+}
+.commend_depiction{
+    color:rgb(0,255,60);
+    line-height:25px;
+}
+.commend_grammar{
+    color:rgb(0,94,255);
+    line-height:25px;
+}
+.commend_example{
+    color:rgb(255,196,0);
+    line-height:25px;
+}
+.commend_detailed{
+    color:rgb(255,255,255);
+    line-height:25px;
+}
+
+.main_depiction {
+    color:rgb(255,255,255);
+    line-height:4px;
+}
+
+.annotation_title{
+    color:rgb(0,94,255);
+    line-height:10px;
+}
+
+.annotation_depiction{
+    color:rgb(255,255,255);
+    padding-bottom:4px;
+    line-height:20px;
+}
+
+.annotation_sheet{
+    color:rgb(255,255,255);
+    line-height:25px;
+}
+
+.references {
+    color:rgb(255, 255, 255);
+    line-height:30px;
+}
+
+.author_title{
+    color:red;
+    line-height:25px;
+}
+.author_depiction{
+    color:rgb(255, 255, 255);
+    line-height:25px;
+}

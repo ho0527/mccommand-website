@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    </meta>
+    <title>
+        minecraft commend annotation
+    </title>
+    <link rel="stylesheet" href="!minecraft commend.css">
+</head>
+
+<body bgcolor="black">
+    <class class="main_title">
+        <h1>annotation</h1>
+        <h4><a href="../ZH_TWblack\.html">返回主頁</a></h4>
+    </class>
+
+    <h3 class="annotation_title">註1:</h3>
+    <h4 class="annotation_depiction">名稱包含@a(全部玩家)、@p(最近玩家)、@e(全部實體)、@s(自己)、@r(隨機玩家)</h4>
+    <h3 class="annotation_title">註2:</h3>
+    <h4 class="annotation_depiction">是用玩家ID就不能加 只要是加目標就可加目標選擇器<sup>表1</sup><br>
+    !表格1<br></h4>
+    <table class="annotation_sheet">
+        <tr>
+        <td>指令</td>
+        <td>用途</td>
+        </tr>
+        <tr>
+        <td>advancements</td>
+        <td>玩家擁有進度</td>
+        </tr>
+        <tr>
+        <td>distance</td>
+        <td>距離</td>
+        </tr>
+        <tr>
+        <td>dx,dy,dz</td>
+        <td>位於(x,y,z)和(x,y,z)+(dx,dy,dz)之間的距離</td>
+        </tr>
+        <tr>
+        <td>gamemode</td>
+        <td>遊戲模式</td>
+        </tr>
+        <tr>
+        <td>level</td>
+        <td>經驗等級</td>
+        </tr>
+        <tr>
+        <td>limit</td>
+        <td>最大實體回傳數</td>
+        </tr>
+        <tr>
+        <td>name</td>
+        <td>實體名稱</td>
+        </tr>
+        <tr>
+        <td>nbt</td>
+        <td>實體的數據標籤</td>
+        </tr>
+        <tr>
+        <td>predicate</td>
+        <td>述詞</td>
+        </tr>
+        <tr>
+        <td>scores</td>
+        <td>記分項分數</td>
+        </tr>
+        <tr>
+        <td>sort</td>
+        <td>對實體進行排序</td>
+        </tr>
+        <tr>
+        <td>tag</td>
+        <td>計分板標籤</td>
+        </tr>
+        <tr>
+        <td>team</td>
+        <td>隊伍名稱</td>
+        </tr>
+        <tr>
+        <td>type</td>
+        <td>實體類型(僅在@e有效)</td>
+        </tr>
+        <tr>
+        <td>x,y,z</td>
+        <td>坐標</td>
+        </tr>
+        <tr>
+        <td>x_rotation</td>
+        <td>垂直旋轉角度</td>
+        </tr>
+        <tr>
+        <td>y_rotation</td>
+        <td>水平旋轉角度</td>
+        </tr>
+    </table>
+
+    <h3 class="annotation_title">註3:</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註4:</h3>
+    <h4 class="annotation_depiction">
+    範例:1-1-1-1-1<br>
+    詳細介紹:<br>
+    </h4>
+
+    <h3 class="annotation_title">註5:</h3>
+    <h4 class="annotation_depiction">
+    概述:一個會用到:文字、以翻譯文字、記分板、實體名稱、按鍵鍵位以及NBT值的奇怪東東<br>
+    範例:<br>
+    詳細介紹:<br>
+    </h4>
+
+    <h3 class="annotation_title">註6:give 藥水排版</h3>
+    <h4 class="annotation_depiction">
+    !表2
+    Id:效果的數字ID<br>
+    效果 名稱 數字ID<br>
+    速度 speed 1<br>
+    緩慢 slowness 2<br>
+    挖掘加速 haste 3<br>
+    挖掘疲勞 mining_fatigue 4<br>
+    力量 strength 5<br>
+    立即治療 instant_health 6<br>
+    立即傷害 instant_damage 7<br>
+    跳躍提升 jump_boost 8<br>
+    噁心 nausea 9<br>
+    回復 regeneration 10<br>
+    抗性 resistance 11<br>
+    抗火 fire_resistance 12<br>
+    水下呼吸 water_breathing 13<br>
+    隱形 invisibility 14<br>
+    失明 blindness 15<br>
+    夜視 night_vision 16<br>
+    飢餓 hunger 17<br>
+    虛弱 weakness 18<br>
+    中毒 poison 19<br>
+    凋零 wither 20<br>
+    生命值提升 health_boost 21<br>
+    吸收 absorption 22<br>
+    飽食 saturation 23<br>
+    發光 glowing 24<br>
+    懸浮 levitation 25<br>
+    幸運 luck 26<br>
+    霉運 unluck 27<br>
+    緩降 slow_falling 28<br>
+    海靈祝福 conduit_power 29<br>
+    海豚悠游 dolphins_grace 30<br>
+    不祥之兆 bad_omen 31<br>
+    村莊英雄 hero_of_the_village 32
+    </h4>
+    <h3 class="annotation_title">註7:鐵砧機制</h3>
+    <h4 class="annotation_depiction">
+    鐵砧具有4種基本功能:
+    1.重新命名任何物品,包括普通的方塊<br>
+    2.使用其合成原料來修復受損物品(還是有例外如鐵錠修復鎖鏈甲、夜魅皮膜修復鞘翅<br>
+    3.合併兩個相同類型和材質<br>
+    4.將工具與附魔書結合,將附魔轉移到工具上<br>
+    附魔上限在<sup>表5</sup><br>
+    這個指令要遵守鐵砧機制所以上限一樣(可以把他想成是一個指令版的鐵砧)<br>
+    所以也不能亂附魔<br>
+    向木棒不能付擊退,鋤頭不能付鋒利等等<br>
+    </h4>
+    表5
+    <h3 class="annotation_title">註8:區塊</h3>
+    <h4 class="annotation_depiction">
+    區塊算法:<br>
+    區塊的x坐標:Floor(x坐標/16)<br>
+    區塊的z坐標:Floor(z坐標/16)<br>
+    Floor是取得"小於"等於指定數字的"最大整數"<br>
+    例如:<br>
+    1.如果x是27,z是-15,區塊將會是(Floor(27/16)(因27/16=1.~所以小於該數的最大整數是1),Floor(-15/16)(因-15/16=0.~所以小於該數的最大整數是1))區塊,這意味著玩家在區塊(1,-1)<br>
+    2.如果x是30,z是20,區塊將會是(Floor(30/16)(因30/16=1.~所以小於該數的最大整數是1),Floor(20/16)(因27/16=1.~所以小於該數的最大整數是1))區塊,這意味著玩家在區塊(1,1)<br>
+    </h4>
+
+    <h3 class="annotation_title">註9:子指令</h3>
+    <h4 class="annotation_depiction">
+    原指令下的附屬指令 例如:/gamerule keepInventory 的"keepInventory"就是子指令
+    </h4>
+
+    <h3 class="annotation_title">註10:</h3>
+    <h4 class="annotation_depiction">
+    在(1.4.2 12w39a)之前xp的上限只有5000
+    </h4>
+    
+    <h3 class="annotation_title">註11:</h3>
+    <h4 class="annotation_depiction">
+    debug資料夾<sup>圖1</sup>
+    </h4>
+
+    <h3 class="annotation_title">註12:聲音列表:</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註13:</h3>
+    <h4 class="annotation_depiction">
+    名稱:資料夾格式是namespace:path/to/function/file或#namespace:path/to/function/tag。沒有#前綴的namespace:path/to/function/file格式會執行[data_pack]/data/namespace/functions/path/to/function/file.mcfunction處的函數。有#前綴的#namespace:path/to/function/tag格式會執行所有[data_pack]/data/namespace/tags/functions/path/to/function/tag.json標籤下的函數。
+    </h4>
+
+    <h3 class="annotation_title">註14:</h3>
+    <h4 class="annotation_depiction">
+    !表3
+    親水性 aqua_affinity<br>
+    節肢剋星 bane_of_arthropods<br>
+    綁定詛咒 binding_curse<br>
+    爆炸保護 blast_protection<br>
+    喚雷 channeling<br>
+    深海漫遊 depth_strider<br>
+    效率 efficiency<br>
+    輕盈 feather_falling<br>
+    燃燒 fire_aspect<br>
+    火焰保護 fire_protection<br>
+    火焰 flame<br>
+    幸運 fortune<br>
+    冰霜行者 frost_walker<br>
+    魚叉 impaling<br>
+    無限 infinity<br>
+    擊退 knockback<br>
+    掠奪 looting<br>
+    忠誠 loyalty<br>
+    海洋的祝福 luck_of_the_sea<br>
+    魚餌 lure<br>
+    修補 mending<br>
+    分裂箭矢 multishot<br>
+    貫穿 piercing<br>
+    強力 power<br>
+    投射物保護 projectile_protection<br>
+    保護 protection<br>
+    衝擊 punch<br>
+    快速上弦 quick_charge<br>
+    水中呼吸 respiration<br>
+    波濤 riptide<br>
+    鋒利 sharpness<br>
+    絲綢之觸 silk_touch<br>
+    不死剋星 smite<br>
+    靈魂疾走 soul_speed<br>
+    橫掃之刃 sweeping<br>
+    迅捷潛行 swift_sneak<br>
+    尖刺 thorns<br>
+    耐久 unbreaking<br>
+    消失詛咒 vanishing_curse<br>
+    </h4>
+    
+    <h3 class="annotation_title">註15:述詞</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註16:座標尺度</h3>
+    <h4 class="annotation_depiction">
+    大家都知道在地獄走1格=在走8格(吧<br>
+    所以從傳送到地獄時,執行位置（僅X/Z軸部分）會除以8<br>
+    從地獄傳送到則會乘以8<br>
+    </h4>
+
+    <h3 class="annotation_title">註17:述詞</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註18:計分項</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註19:數值範圍的打法</h3>
+    <h4 class="annotation_depiction">
+    0:精確匹配0<br>
+    ..0:小於等於0<br>
+    0..:大於等於0<br>
+    0..1:0與1之間(含)<br>
+    </h4>
+
+    <h3 class="annotation_title">註20:倍率</h3>
+    <h4 class="annotation_depiction">
+    </h4>
+
+    <h3 class="annotation_title">註21:物品欄欄位</h3>
+    <h4 class="annotation_depiction">
+    指定將被修改的欄位。<br>
+    對方塊，應是container.槽位编号或inventory.槽位编号-9。其中欄位編號或是欄位ID: 整數應替代為所指定的容器欄位編號。<br>
+    儲物箱、發射器、投擲器、漏斗和陷阱儲物箱的左上欄位為第0號欄位，並按照從左往右遞增，然後是從上往下遞增。（因此例如一個儲物箱的最上一行的欄位ID從左往右為0-8）。大儲物箱和大陷阱儲物箱被視作兩個獨立的容器方塊。<br>
+    釀造台底部盛放藥水處的欄位ID從左往右為0-2，頂端欄位為3，燃料欄位為4。<br>
+    熔爐被熔煉物品欄的ID為0，燃料欄位為1，熔煉產物欄為2。<br>
+    </h4>
+
+    <h3 class="annotation_title">註22:物品修飾器</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註23:物品ID參數</h3>
+    <h4 class="annotation_depiction">
+    如草地就是minecraft:gress_block
+    但就算不打minecraft: 指令還是可以判讀
+    </h4>
+
+    <h3 class="annotation_title">註24:結構</h3>
+    <h4 class="annotation_depiction">
+    結構名稱 Java版<br>
+    遠古城市 ancient_city<br>
+    埋藏的寶藏 buried_treasure<br>
+    終界城 end_city<br>
+    地獄要塞 fortress<br>
+    綠林府邸 mansion mansion <br>
+    廢棄礦坑 mineshaft<br>
+    mineshaft_mesa mineshaft <br>
+    海底神殿 monument monument <br>
+    海底廢墟 ocean_ruin_cold<br>
+    沉船 shipwreck<br>
+    shipwreck_beached <br>
+    要塞 stronghold<br>
+    沙漠神殿 desert_pyramid<br>
+    雪屋 igloo<br>
+    叢林神廟 jungle_pyramid<br>
+    女巫小屋 swamp_hut<br>
+    村莊 village_desert<br>
+    village_plains<br>
+    village_savanna<br>
+    village_snowy<br>
+    village_taiga <br>
+    掠奪者前哨站 pillager_outpost<br>
+    地獄化石 nether_fossil<br>
+    堡壘遺蹟 bastion_remnant<br>
+    廢棄傳送門 ruined_portal<br>
+    ruined_portal_desert<br>
+    ruined_portal_jungle<br>
+    ruined_portal_mountain<br>
+    ruined_portal_nether<br>
+    ruined_portal_ocean<br>
+    ruined_portal_swamp<br>
+    </h4>
+
+    <h3 class="annotation_title">註25:生態域名</h3>
+    <h4 class="annotation_depiction">
+    名稱 命名空間ID 數字ID<br>
+    海洋 ocean 0<br>
+    平原 plains 1<br>
+    沙漠 desert 2<br>
+    風蝕丘陵 windswept_hills 3<br>
+    森林 forest 4<br>
+    針葉林 taiga 5<br>
+    沼澤 swamp 6<br>
+    河流 river 7<br>
+    地獄荒原 nether_wastes 8<br>
+    終界 the_end 9<br>
+    寒凍海洋 frozen_ocean 10<br>
+    寒凍河流 frozen_river 11<br>
+    雪原 snowy_plains 12<br>
+    蘑菇地 mushroom_fields 14<br>
+    沙灘 beach 16<br>
+    叢林 jungle 21<br>
+    稀疏叢林 sparse_jungle 23<br>
+    深海 deep_ocean 24<br>
+    石岸 stony_shore 25<br>
+    冰雪沙灘 snowy_beach 26<br>
+    樺木森林 birch_forest 27<br>
+    黑森林 dark_forest 29<br>
+    冰雪針葉林 snowy_taiga 30<br>
+    原生松木針葉林 old_growth_pine_taiga 32<br>
+    風蝕森林 windswept_forest 34<br>
+    莽原 savanna 35<br>
+    莽原高地 savanna_plateau 36<br>
+    惡地 badlands 37<br>
+    疏林惡地 wooded_badlands 38<br>
+    終界小島 small_end_islands 40<br>
+    終界內陸 end_midlands 41<br>
+    終界高地 end_highlands 42<br>
+    終界荒地 end_barrens 43<br>
+    溫暖海洋 warm_ocean 44<br>
+    溫和海洋 lukewarm_ocean 45<br>
+    寒冷海洋 cold_ocean 46<br>
+    溫和深海 deep_lukewarm_ocean 48<br>
+    寒冷深海 deep_cold_ocean 49<br>
+    冰凍深海 deep_frozen_ocean 50<br>
+    虛空 the_void 127<br>
+    向日葵平原 sunflower_plains 129<br>
+    風蝕礫質丘陵 windswept_gravelly_hills 131<br>
+    繁花森林 flower_forest 132<br>
+    冰刺 ice_spikes 140<br>
+    原始樺木森林 old_growth_birch_forest 155<br>
+    原生杉木針葉林 old_growth_spruce_taiga 160<br>
+    風蝕莽原 windswept_savanna 163<br>
+    侵蝕惡地 eroded_badlands 165<br>
+    竹林 bamboo_jungle 168<br>
+    靈魂砂谷 soul_sand_valley 170<br>
+    緋紅森林 crimson_forest 171<br>
+    扭曲森林 warped_forest 172<br>
+    玄武岩三角洲 basalt_deltas 173<br>
+    鐘乳石洞窟 dripstone_caves 174<br>
+    蒼鬱洞窟 lush_caves 175<br>
+    草甸 meadow 177<br>
+    雪林 grove 178<br>
+    雪坡 snowy_slopes 179<br>
+    霜凍山峰 frozen_peaks 180<br>
+    尖峭山峰 jagged_peaks 181<br>
+    裸岩山峰 stony_peaks 182<br>
+    深淵 deep_dark ?<br>
+    紅樹林沼澤 mangrove_swamp ?<br>
+    </h4>
+
+    <h3 class="annotation_title">註26:興趣點</h3>
+    <h4 class="annotation_depiction">
+    興趣點類型ID 對應方塊 最大認領數 興趣點類型標籤<br>
+    armorer 高爐 1 acquirable_job_site,village<br>
+    bee_nest 蜂窩 0 bee_home<br>
+    beehive 蜂箱 0 bee_home<br>
+    butcher 煙燻爐 1 acquirable_job_site,village<br>
+    cartographer 製圖台 1 acquirable_job_site,village<br>
+    cleric 釀造台 1 acquirable_job_site,village<br>
+    farmer 堆肥桶 1 acquirable_job_site,village<br>
+    fisherman 木桶 1 acquirable_job_site,village<br>
+    fletcher 製箭台 1 acquirable_job_site,village<br>
+    home 床 1 village<br>
+    leatherworker 鍋釜 1 acquirable_job_site,village<br>
+    librarian 講台 1 acquirable_job_site,village<br>
+    lightning_rod 避雷針 0<br>
+    lodestone 磁石 0<br>
+    mason 切石機 1 acquirable_job_site,village<br>
+    meeting 鐘 32 village<br>
+    nether_portal 地獄傳送門 0<br>
+    shepherd 紡織機 1 acquirable_job_site,village<br>
+    toolsmith 鍛造台 1 acquirable_job_site,village<br>
+    weaponsmith 砂輪 1 acquirable_job_site,village<br>
+    </h4>
+
+    <h3 class="annotation_title">註27:粒子</h3>
+    <h4 class="annotation_depiction">
+    Java版ID名 描述 圖片<br>
+    ambient_entity_effect 烽火台效果<br>
+    angry_villager 村民被玩家攻擊、目睹玩家攻擊貓熊、無法進行繁殖時產生的憤怒粒子<br>
+    ash  在靈魂砂谷生態域中飄散的顆粒<br>
+    block 方塊被摧毀、玩家疾走、鐵魔像行走產生的粒子 盔甲座被摧毀、生物跌落於方塊時產生的粒子<br>
+    block_marker  對應方塊的貼圖玩家手持光或屏障時顯現於已放置的光/屏障處<br>
+    bubble 水中的實體、深海守衛雷射、浮標產生的氣泡<br>
+    bubble_column_up 水下靈魂砂產生的涌流氣泡柱<br>
+    bubble_pop 氣泡柱的頂部。該粒子未被實現。<br>
+    campfire_cosy_smoke 營火產生的煙霧。<br>
+    campfire_signal_smoke 放置在乾草捆上的營火產生的煙霧<br>
+    cloud 實體死亡時產生的煙霧粒子<br>
+    composter 堆肥桶被填充時產生的粒子<br>
+    crimson_spore 在緋紅森林生態域中飄散的顆粒<br>
+    crit 玩家造成暴擊、尖牙進行攻擊、箭被射出時產生的粒子<br>
+    current_down 水下岩漿塊形成的渦流氣泡柱<br>
+    damage_indicator 生物受到近戰攻擊時產生的粒子<br>
+    dolphin 海豚游泳時產生的水花粒子。 Particle dolphin.png<br>
+    dragon_breath 終界龍的龍之吐息、龍炎彈產生的粒子<br>
+    dripping_dripstone_lava 鐘乳石滲出且未滴落的熔岩粒子<br>
+    dripping_dripstone_water 鐘乳石滲出且未滴落的水粒子<br>
+    dripping_honey 蜂窩或蜂箱滲出且未滴落的蜂蜜粒子<br>
+    dripping_lava 滲過方塊且未滴落的熔岩粒子<br>
+    dripping_obsidian_tear 哭泣的黑曜石滲出且未滴落的粒子<br>
+    dripping_water 滲過方塊的水粒子以及濕海綿、下雨時的樹葉產生的水粒子<br>
+    dust 紅石礦、紅石火把、充能的紅石線、充能的紅石中繼器、開啟的控制桿[僅JE]產生的粒子<br>
+    dust_color_transition 啟動的伏聆振測器產生的粒子<br>
+    effect 喚魔者施法、幻術師施法[僅JE]、鐘進行共振[僅JE]時出現的粒子，<br>
+    以及飛濺藥水、滯留藥水、經驗瓶破碎時產生的粒子。<br>
+    elder_guardian 玩家被遠古深海守衛給予挖掘疲勞時出現的「鬼影」<br>
+    electric_spark 閃電擊中銅方塊時產生的粒子<br>
+    enchant從書櫃流入附魔台的符號文字<br>
+    enchanted_hit 生物被附有鋒利、不死剋星或節肢剋星附魔的劍或斧攻擊時出現的粒子<br>
+    end_rod endrod 終界燭、界伏彈產生的粒子<br>
+    entity_effect 帶有狀態效果的生物、凋零怪護甲、藥水效果雲、藥水箭產生的粒子<br>
+    explosion 爆炸、終界龍死亡、哞菇被除菇時出現的粒子<br>
+    explosion_emitter 爆炸、終界龍死亡時出現的粒子<br>
+    falling_dripstone_lava 鐘乳石滴落的熔岩粒子<br>
+    falling_dripstone_water 鐘乳石滴落的水粒子<br>
+    falling_dust  浮空而未下落的沙、礫石、混凝土粉末、鐵砧和雪[僅基岩版]產生的粒子<br>
+    falling_honey 蜂窩或蜂箱滴落的蜂蜜粒子<br>
+    falling_lava 滲過方塊滴落的熔岩粒子<br>
+    falling_nectar 沾有花粉的蜜蜂掉落的花粉<br>
+    falling_obsidian_tear 哭泣的黑曜石滴落的粒子<br>
+    falling_spore_blossom 孢子花掉落的孢子粒子<br>
+    falling_water 滲過方塊滴落以及著地的水粒子<br>
+    firework 煙火的尾跡和爆炸（尾跡不會在粒子密度設為「最少」時顯示）、海豚被餵食後產生的粒子<br>
+    fishing 釣魚時出現的水花粒子<br>
+    flame 火把、熔爐、岩漿立方怪著地和生怪磚產生的火苗粒子<br>
+    flash 煙火爆炸時的閃爍效果<br>
+    glow 螢光魷魚產生的螢光粒子<br>
+    glow_squid_ink 螢光魷魚被攻擊時噴的螢光墨汁<br>
+    happy_villager 使用骨粉、與村民交易、餵養幼年動物、玩家踩踏海龜蛋（僅相同位置上海龜蛋數量有變化時）[僅Java版]時出現的粒子<br>
+    heart 生物繁殖或被馴服時出現的愛心粒子<br>
+    instant_effect 立即治療/立即傷害飛濺藥水和滯留藥水破碎、追跡之箭[僅JE]在空中時產生的粒子<br>
+    item 玩家進食、物品損壞以及雞蛋、終界之眼、飛濺藥水、滯留藥水、經驗瓶破碎時產生的碎片<br>
+    item_slime 史萊姆著地產生的粒子<br>
+    item_snowball 扔出雪球、召喚凋零怪、召喚鐵魔像時出現的粒子<br>
+    landing_honey 蜂窩或蜂箱滲出的已著地的蜂蜜粒子<br>
+    landing_lava 滲過方塊著地的熔岩粒子<br>
+    landing_obsidian_tear 哭泣的黑曜石滲出的已著地的粒子<br>
+    large_smoke 烈焰使者、火燃燒、熔爐礦車啟動、水和熔岩接觸時出現的煙霧粒子<br>
+    lava 熔岩產生的火花粒子<br>
+    mycelium 菌絲土產生的孢子粒子<br>
+    nautilus 啟動的海靈核心產生的粒子<br>
+    note 啟動音階盒或唱片機[僅BE]時出現的音符<br>
+    poof 爆炸、生物死亡、生怪磚生成生物、蠹魚鑽入方塊時出現的煙霧粒子<br>
+    portal 地獄傳送門、終界使者、終界蟎、終界珍珠、終界之眼、終界箱、龍蛋、食用歌萊果後瞬移、終界折躍門產生的粒子<br>
+    rain 雨滴<br>
+    scrape 用斧為銅方塊除鏽時產生的粒子<br>
+    smoke 火把、點燃的TNT、漏斗、發射器、終界傳送門、釀造台、生怪磚、熔爐、地獄幽靈火球、凋零頭顱、凋零怪、雨中的熔岩、營火上的食物、紅石火把熄滅、往終界傳送門框架上放置終界之眼、馴服生物產生的粒子<br>
+    sneeze 幼年貓熊打噴嚏<br>
+    snowflake 玩家在粉雪中移動時產生的雪花粒子<br>
+    soul 穿戴靈魂疾走靴子的生物在靈魂砂或靈魂土上行走時出現的小靈魂粒子<br>
+    soul_fire_flame 靈魂火把產生的火苗粒子<br>
+    spit 駱馬啐生物時產生的粒子<br>
+    spore_blossom_air 在孢子花周圍發散的孢子粒子<br>
+    splash 水中的實體、離開水後的狼、船產生的水花粒子<br>
+    squid_ink 魷魚被攻擊時噴出的墨汁<br>
+    sweep_attack 劍的橫掃動畫<br>
+    totem_of_undying 啟動不死圖騰時出現的粒子<br>
+    underwater 水下飄散的顆粒<br>
+    vibration 傳向伏聆振測器的振動粒子<br>
+    warped_spore 在扭曲森林生態域中飄散的顆粒<br>
+    wax_off 用斧給銅方塊除蠟時出現的粒子<br>
+    wax_on 用蜂巢給銅方塊塗蠟時出現的粒子<br>
+    white_ash 在玄武岩三角洲生態域中飄散的顆粒<br>
+    witch witchspell 女巫產生的粒子
+
+    </h4>
+
+    <h3 class="annotation_title">註:</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <!-- <h3 class="annotation_title">註:</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註:</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註:</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註:</h3>
+    <h4 class="annotation_depiction"></h4> -->
+
+
+    <h3 class="annotation_title">其他註解:</h3>
+    <h3 class="annotation_title">註1:</h3>
+    <h4 class="annotation_depiction">
+    布琳值=true or false
+    </h4>
+    
+    <!-- <h3 class="annotation_title">註:</h3>
+    <h4 class="annotation_depiction"></h4>
+
+    <h3 class="annotation_title">註:</h3>
+    <h4 class="annotation_depiction"></h4> -->
+
+
+
+
+
+    <class class="main_depiction">
+        <h2>註解</h2>
+    </class>
+</body>
+
+</html>

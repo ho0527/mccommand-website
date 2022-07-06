@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        </meta>
+        <title>
+            minecraft commend E
+        </title>
+        <link rel="stylesheet" href="!minecraft commend.css">
+    </head>
+
+    <body bgcolor="black">
+        <class class="main_title">
+            <h1>E</h1>
+            <h4><a href="../ZH_TWblack\.html">返回主頁</a></h4>
+        </class>
+
+        <h2 class="commend_title">effect</h2>
+        <h3 class="commend_depiction">effect(藥水效果)(1.5 13w09b)</h3>
+        <h3 class="commend_grammar">語法:/effect {[give {玩家或目標} {效果名} {時間0~999999} {級數(0~255)} (true | *flase*)]  |  [clear{玩家或目標} {效果名}]}</h3>
+        <h3 class="commend_example">範例:/effect give @s speed 999999 10 (flast)</h3>
+        <h3 class="commend_detailed">
+        在後方加clear(清除)/give(新增)<sup>註6</sup><br>
+        之後加目標<br>
+        之後加藥水效果<br>
+        clear沒指定藥水效果則全清除<br>
+        加秒數[give才能用，(上限為999999(999999=無限))]<br>
+        加強度 [give才能用，(上限為255)]<br>
+        注意喔不一定要最高才是好事<br>
+        像回復生命值10的回覆效果比255好<br>
+        最後加是否隱藏粒子<br>
+        可加可不加[give才能用，(後方加布林值(true or flast)]<br>
+        預設為flast<br>
+        </h3>
+
+        <h2 class="commend_title">enchant</h2>
+        <h3 class="commend_depiction">enchant(為該玩家手持的物品加入附魔<sup>註14</sup>但受限於鐵砧機制<sup>註7</sup>)((1.4.4 pre~)</h3>
+        <h3 class="commend_grammar">語法:/enchant {玩家或目標} {附魔名}</h3>
+        <h3 class="commend_example">範例:/enchant @s infinity</h3>
+        <h3 class="commend_detailed">
+            後方加名稱<br>
+            加附魔名<br>
+            最後加等級(等級上限會與鐵砧機制一並提到)<br>
+        </h3>
+
+        <h2 class="commend_title">execute</h2>
+        <h3 class="commend_depiction">execute(用於執行另一個指令，儲存其輸出值的情況下執行另一條指令。)(1.8 14w07a~)!子指令的解釋在註9</h3>
+        <h3 class="commend_grammar">語法:/execute {子指令} {主指令}</h3>
+        <h3 class="commend_example">範例:/execute as @a at @s run tp ~ ~ ~1</h3>
+        <h3 class="commend_detailed">
+        修飾子指令<br>
+        align(把執行位置轉換為方塊坐標（向下取整）)<br>
+        anchored(使用此指令切換指令的基準點為實體"腳或眼睛"的位置 預設為腳)<br>
+        as(改變指令的執行者)(...將...)<br>
+        at(改變指令的執行位置、執行朝向和執行維度為指定實體的坐標、朝向和維度，不改變指令執行者(...在...))<br>
+        facing(將指令的執行朝向改為面向指定的坐標或某個實體，不改變指令執行者(...朝向...))<br>
+        in(將指令執行維度設為特定維度。指令將在指定的維度中執行)<br>
+        positioned(在指定的坐標執行指令 改變執行位置)<br>
+        rotated(將指令的執行朝向設為特定方向，或者設為指定實體的朝向 改變執行朝向(...轉向...))<br>
+        <br>
+        條件子指令(用於限制指令只有在"指定的條件"下執行 if為如果......就 unless為除非......否則)<br>
+        (if/unless)block(檢測單個具體方塊)<br>
+        blocks(檢測兩個長方體區域內的匹配情況)<br>
+        data(檢測方塊、實體或儲存持有的資料)(1.14 18w43a~)<br>
+        entity(檢測指定實體是否存在)<br>
+        predicate(檢測指定述詞<sup>註15</sup>是否透過)(if:1.15 19w38a~)<br>
+        score(檢測目標的分數)<br>
+        <br>
+        儲存子指令(可以讓指令在執行之後將指令回傳的結果或成功次數"儲存"於計分板、NBT資料、或boss欄中)(1.13 18w05a~)<br>
+        store (result/success) block(儲存在方塊NBT中)<br>
+        bossbar(儲存在boss欄的資料中)<br>
+        entity(儲存在一個實體的NBT中)<br>
+        score(儲存在目標的計分項的分數中)<br>
+        storage(儲存在儲存的NBT中)(1.15 19w38a~)<br>
+        <br>
+        run子指令(執行要被執行的指令)(常被放於結尾)<br>
+        run(執行)<br>
+        以上共8+6*2+5*2+1共計31種<br>
+        <br>
+        概述:/execute 第1子指令(含目標) 主要指令(如say,score,tp等...)或繼續execute...<br>
+        以下為詳細用法及範例:<br>
+        修飾子指令:<br>
+        align:<br>
+        範例:/execute positioned -1.8 2.3 5.9 align run tp ~ ~ ~<br>
+        因為會"向下取整"所以執行這個指令後會將@s tp 到[-1 2 5]<br>
+        如果變成align x/y/z tp 執行後會變成 將@s tp 到選擇的值 向下取整 如:execute positioned -1.8 2.3 5.9 align x run tp ~ ~ ~<br>
+        會變成tp 到[-1 2.3 5.9]<br>
+        positioned指位置所以就是將位置訂在1.8 2.3 5.9之後讓他align<br>
+        align (x/y/z) 之後再加指令或繼續execute<br>
+        anchored:<br>
+        範例:/execute @s anchored eyes(眼睛),(feet(腳)) run tp ~ ~ ~<br>
+        將@s從腳部tp到眼睛或腳(換句話說填feet會沒有變化)<br>
+        anchored之後加(eyes(眼睛)/feet(腳))之後再加指令或繼續execute<br>
+        as:<br>
+        範例:/execute as @e[type=sheep] run data get<br>
+        取得綿羊的資料<br>
+        as之後加(玩家ID/UUID/目標選擇器<sup>註2</sup>)之後再加指令或繼續execute<br>
+        at:<br>
+        範例:/execute at @r run setblock ~ ~ ~ stone<br>
+        在一名隨機玩家頭上放置一顆石頭<br>
+        at之後加(玩家ID/UUID/目標選擇器<sup>註2</sup>)之後再加指令或繼續execute<br>
+        faceing:<br>
+        範例:/execute as @e at @s facing 0 64 0 run tp ~ ~ ~1<br>
+        所有的實體都朝著(0, 64, 0)的方向移動一格"不改變自身的朝向"<br>
+        faceing之後加(座標(x,y,z))之後再加指令或繼續execute<br>
+        in:<br>
+        範例:execute in minecraft:the_nether positioned as @s run tp ~ ~ ~<br>
+        主世界(16,64,16)位置的玩家執行，會傳送到地獄的(16,64,16)<br>
+        *如果沒加positioned as @s 會重送到(2,64,2)因為坐標尺度不同<sup>註15</sup><br>
+        in之後加(minecraft:overworld/inecraft:the_end/inecraft:the_nether)之後再加指令或繼續execute<br>
+        positioned:<br>
+        範例:/execute positioned 0 64 0 run locate Village<br>
+        尋找(0, 64, 0)附近的村莊<br>
+        這個就很像將座標設在那之後執行該座標<br>
+        positioned之後加 座標(x,y,z)/as 座標之後再加指令或繼續execute<br>
+        as之後加(玩家ID/UUID/目標選擇器<sup>註2</sup>)之後再加指令或繼續execute<br>
+        rotated:<br>
+        範例:execute as @e[type=sheep] at @s rotated run tp ~ ~ ~1<br>
+        讓所有的綿羊以玩家的朝向作為方向移動1格<br>
+        他可以訂定水平旋轉角度（正北方為-180.0，正東為-90.0，正南為0.0，正西為90.0，正北以西為179.9，之後回到-180.0）或垂直旋轉角度（豎直上方為-90.0，至豎直下方90.0）。可使用波浪號指定基於目前旋轉角度的相對偏移<br>
+        也因此範例可寫成:/execute as @e[type=sheep] at @s rotated ~ ~ tp ~ ~ ~1<br>
+        rotated之後加旋轉角度(水平 垂直)/as 旋轉角度(水平 垂直)旋轉角度(水平 垂直) as之後加(玩家ID/UUID/目標選擇器<sup>註2</sup>)之後再加指令或繼續execute<br>
+        <br>
+        條件子指令:<br>
+        if block:<br>
+        範例:/execute if block 50 50 50 grass_block kill @a<br>
+        (如果50 50 50是草方塊則殺死所有玩家)(是就會殺死)<br>
+        unless block:<br>
+        範例:/execute unless block 50 50 50 grass_block kill @a<br>
+        (除非50 50 50是草方塊否則殺死所有玩家)(不是就會殺死)<br>
+        if/unless block {座標(x,y,z)} 方塊名 最後加指令或繼續execute<br>
+        if blocks:<br>
+        範例:/execute if blocks 50 50 50 70 50 70 10 50 10 all<br>
+        判斷(50 50 50 70 50 70)的長方形是否等於以10 50 10為最西北方的長方形(等於=成功)<br>
+        執行成功或失敗圖示如^圖6<br>
+        unless blocks:<br>
+        /execute unless blocks 50 50 50 70 50 70 10 50 10 all<br>
+        判斷(50 50 50 70 50 70)的長方形是否等於以10 50 10為最西北方的長方形(等於=失敗)<br>
+        執行成功或失敗圖示如^圖6<br>
+        if/unless blocks x_1 y_1 z_1 x_2 y_2 z_2(長方形區域的對角座標) x_3 y_3 z_3(以x_3 y_3 z_3為最西北方的長方形) all(探測區域內的全部方塊)/masked(忽略源區域內空氣方塊所在的位置)之後直接enter或之後再加指令或繼續execute<br>
+        最西北方:即長方形區域內x y z坐標最小處<br>
+        if data:<br>
+        範例:<br>
+        unless data:<br>
+        範例:<br>
+        if/unless data block {座標(x,y,z)} 資料標籤<sup>註17</sup> 之後再加指令或繼續execute(用於檢查方塊)<br>
+        if/unless data entity 單個實體 資料標籤<sup>註17</sup> 之後再加指令或繼續execute(用於檢查實體)<br>
+        if/unless data storage 儲存NBT的命名空間ID 資料標籤<sup>註17</sup> 之後再加指令或繼續execute(用於檢查儲存NBT)<br>
+        if entity:<br>
+        範例:/execute if entity <br>
+        unless entity:<br>
+        範例:/execute unless entity <br>
+        if/unless entity 目標 之後再加指令或繼續execute<br>
+        if predicate:<br>
+        範例:<br>
+        unless predicate:<br>
+        範例:<br>
+        if/unless predicate 述詞<sup>註17</sup> 之後再加指令或繼續execute<br>
+        if score:<br>
+        範例:<br>
+        unless score:<br>
+        範例:<br>
+        if/unless score 玩家ID/UUID/目標選擇器/自訂目標 要檢查計分項<sup>註18</sup> 之後加(/=/=/=/) 玩家ID/UUID/目標選擇器/自訂目標 要被檢查計分項<sup>註18</sup> 之後再加指令或繼續execute<br>
+        檢查玩家1的計分項1的分數與玩家2的計分項2的分數是否符合運算符的關係。<br>
+        if/unless score 玩家ID/UUID/目標選擇器/自訂目標 要檢查計分項<sup>註18</sup> matches 數值範圍<sup>註19</sup> 之後再加指令或繼續execute<br>
+        檢查目標的計分項的分數是否在指定數值範圍內<br>
+        <br>
+        儲存子指令:<br>
+        store result block:<br>
+        範例:<br>
+        store success block:<br>
+        範例:<br>
+        store result/success block 目標方塊的坐標 資料標籤的位置 資料的類型(byte/short/int(字串)/long/float(浮點數(有小數的數字(如1.12)))/double) 儲存值的倍率<sup>註20</sup> 之後再加指令或繼續execute<br>
+        store result bossbar:<br>
+        範例:<br>
+        store success bossbar:<br>
+        範例:<br>
+        store result/success bossbar boss欄的命名空間ID 儲存為boss欄的value(目前值)/max(最大值) 之後再加指令或繼續execute<br>
+        store result entity:<br>
+        範例:<br>
+        store success entity:<br>
+        範例:<br>
+        store result/success entity 玩家ID/UUID/選擇器 NBT資料的路徑 資料的類型(byte/short/int(字串)/long/float(浮點數(有小數的數字(如1.12)))/double) 儲存值的倍率<sup>註20</sup> 之後再加指令或繼續execute<br>
+        store result score:<br>
+        範例:<br>
+        store success score:<br>
+        範例:<br>
+        if/unless score 玩家ID/UUID/目標選擇器/自訂目標 計分項<sup>註18</sup> 之後再加指令或繼續execute<br>
+        store result storage:<br>
+        範例:<br>
+        store success storage:<br>
+        範例:<br>
+        store result/success storage 命名空間ID 標籤位置 資料的類型(byte/short/int(字串)/long/float(浮點數(有小數的數字(如1.12)))/double) 儲存值的倍率<sup>註20</sup><br>
+        run子指令:<br>
+        run:<br>
+        範例:<br>
+        run 指令<br>
+        以上就是execute的大致教學 <br>
+        </h3>
+
+        <h2 class="commend_title">experience</h2>
+        <h3 class="commend_depiction">experience(xp)(經驗)(1.13 17w45a(experience))(1.0.0 bata1.9-pre-5(xp))</h3>
+        <h3 class="commend_grammar">語法:/experience {add | set | query} {玩家} {數量} (levels | *point*)</h3>
+        <h3 class="commend_example">範例:/experience add 99999999 (point)</h3>
+        <h3 class="commend_detailed">
+        他們的用法完全一樣<br>
+        後方加add(增加)/query(查看玩家擁有的經驗值或經驗等級)/set(設定)<br>
+        後方加目標<br>
+        不可以用@e<br>
+        之後加經驗數量(經驗值數量必須在0和2147483647之間)<br>
+        最後加levels(等級)point(經驗)<br>
+        預設為point
+        </h3>
+
+        <!-- <h2 class="commend_title"></h2>
+        <h3 class="commend_depiction"></h3>
+        <h3 class="commend_grammar">語法:</h3>
+        <h3 class="commend_example"></h3>
+        <h3 class="commend_detailed"></h3> -->
+
+        <class class="main_depiction">
+            <h2><a href="annotation.html">註解</a></h2>
+        </class>
+    </body>
+
+</html>

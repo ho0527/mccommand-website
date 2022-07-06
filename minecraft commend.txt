@@ -1,0 +1,737 @@
+! ^=上標 _=下標
+minecraft commend
+目錄
+A
+advancement
+advancement(更改成就)(1.12 17w13a)
+範例:/advancement grant @s only hero_of_the_village
+
+advancement 後方加 revoke(撤銷) / grant(新增)
+後方加玩家或目標(不可用@e) (用目標^註1 可用之後加目標選擇器^註2)
+之後在加everything(全部)/from(從這個進度生出去的所有分支)/only(其中一個)/through(從這個進度生出去的所有分支以及這個進度的所有前置進度)/until(這個進度的所有前置進度)
+以下範例
+everything
+from
+only
+through
+until
+最後加成就名^註3(everything除外)
+
+attribute(屬性)(1.6.1 13w16a)
+範例:/attribute @s minecraft:generic.armor get 20
+後方加玩家或目標(只接受單個目標 所以只能用玩家ID、@p、@s跟@r)
+base(基礎上)/get(查詢)/modifier()
+
+base後面加 get(查詢)或set(設定為...)
+set後方要在加數值
+get後面甚麼都不用加(兩get皆同)
+
+modifier
+後方加add/remove/value
+最後加UUID^註4
+
+B
+ban(封鎖) (Alpha v1.0.16)
+範例:/ban xxxxx
+後方加玩家或目標
+!!僅在伺服器有用!!
+
+ban-ip(封鎖ip)(Alpha v1.0.16)
+範例:/ban 123456789
+後方加名稱
+!!僅在伺服器有用!!
+
+banlist(顯示封鎖列表)(Alpha v1.0.16)
+/banlist
+!!僅在伺服器有用!!
+
+bossbar(boss欄)(1.13 18w05a)
+後方加add(新增)/get(返回請求的指定設定)/list(顯示)/remove(移除)/set(設定Boss欄內容(顏色名稱))
+後方加boss名稱
+之後加Boss欄的名字(必須為有效的原始JSON文字格式^註5)
+
+C
+clear(清空裝備)(1.3.1 12w37a)
+範例:/clear @s
+後方加名稱
+物品(不列舉)(可加可不加如果加的話清空該裝備，不加則全清空)
+最高數量 0~2147483647之間的整數數值
+	
+clone(在指定區域之間複製方塊結構)(1.8 14w03a)
+範例:/clone x_1 y_1 z_1 x_2 y_2 z_2 x_3 y_3 z_3
+首先家要複製位置的開始 x,y,z
+結束 x,y,z
+複製位置 x,y,z
+replace(複製所有方塊)/masked(僅複製非空氣方塊)/filtered(要複製的方塊ID)	filtered要加方塊名	
+預設為replace
+force(強制複製)(1.8 14w10a)/move(將源區域複製到目標區域，並將源區域替換為空氣(在filtered模式下，只有被複製的方塊才會被替換為空氣))(1.8 14w20a)/normal不執行force與move)(1.8(14w03a))		預設為normal	
+也就是說一開始的範例=/clone x_1 y_1 z_1 x_2 y_2 z_2 x_3 y_3 z_3 replace normal
+
+D
+data(允許執行者取得、合併、修改或是移除方塊、實體或指令容器的NBT資料)(1.13 17w45a)
+範例:/data
+
+datapack(一個向模組一樣但差很多的神奇的東西)(1.13 17w43a)
+範例:/datapack relode
+
+debug(除錯)(1.3.1 12w27a)
+範例:/debug start
+後方加start(開始)/stop(停止)/function(函數)
+如果是用function後方要加function名稱
+若成功除錯停止時，會在debug資料夾^註11中建立一份分析結果。
+
+defaultgamemode(設定新玩家進入伺服器時預設的遊戲模式)(1.3.1 12w22a)
+範例:/defaultgamemode survival
+後方加模式survival(生存)/creative(創造)/adventure(冒險)/spectator(旁觀者)
+預設為伺服器預設模式
+
+difficulty(設定難度)(1.4.2 12w32a)
+範例:/difficulty normal
+之後加peaceful(和平)/easy(簡單)/normal(普通)/hard(困難)
+預設為普通
+
+deop(解除某人op)()
+範例:/deop xxxxx
+後面加名稱
+
+E
+effect(藥水效果)(1.5 13w09b)
+範例:/effect give speed 999999 10 (flast)
+在後方加clear(清除)/give(新增)^註6	
+之後加目標
+之後加藥水效果在畫面上
+
+clear沒指定藥水效果則全清除
+加秒數[give才能用，(上限為999999(999999=無限))]
+加強度 [give才能用，(上限為255)]
+注意喔不一定要最高才是好事
+像回復生命值10的回覆效果比255好
+最後加是否隱藏粒子
+可加可不加[give才能用，(後方加布林值(true or flast)]
+預設為flast
+
+enchant(為該玩家手持的物品加入附魔^註14但受限於鐵砧機制^註7)((1.4.4 pre~)
+範例:/enchant @s infinity
+後方加名稱
+加附魔名
+最後加等級(等級上限會與鐵砧機制一並提到)
+
+execute(用於執行另一個指令，儲存其輸出值的情況下執行另一條指令。)(1.8 14w07a~)!子指令的解釋在註9
+範例:/execute as @a at @s run tp ~ ~ ~1
+後方
+修飾子指令
+align(把執行位置轉換為方塊坐標（向下取整）)
+anchored(使用此指令切換指令的基準點為實體"腳或眼睛"的位置 預設為腳)
+as(改變指令的執行者)(...將...)
+at(改變指令的執行位置、執行朝向和執行維度為指定實體的坐標、朝向和維度，不改變指令執行者(...在...))
+facing(將指令的執行朝向改為面向指定的坐標或某個實體，不改變指令執行者(...朝向...))
+in(將指令執行維度設為特定維度。指令將在指定的維度中執行)
+positioned(在指定的坐標執行指令 改變執行位置)/rotated(將指令的執行朝向設為特定方向，或者設為指定實體的朝向 改變執行朝向(...轉向...))
+
+條件子指令(用於限制指令只有在"指定的條件"下執行 if為如果......就 unless為除非......否則)
+(if/unless)block(檢測單個具體方塊)
+blocks(檢測兩個長方體區域內的匹配情況)
+data(檢測方塊、實體或儲存持有的資料)(1.14 18w43a~)
+entity(檢測指定實體是否存在)
+predicate(檢測指定述詞^註15是否透過)(if:1.15 19w38a~)
+score(檢測目標的分數)
+
+儲存子指令(可以讓指令在執行之後將指令回傳的結果或成功次數"儲存"於計分板、NBT資料、或boss欄中)(1.13 18w05a~)
+store (result/success) block(儲存在方塊NBT中)
+bossbar(儲存在boss欄的資料中)
+entity(儲存在一個實體的NBT中)
+score(儲存在目標的計分項的分數中)
+storage(儲存在儲存的NBT中)(1.15 19w38a~)
+
+run子指令(執行要被執行的指令)(常被放於結尾)
+run(執行)
+以上共8+6*2+5*2+1共計31種
+
+概述:/execute <第1子指令(含目標)> <主要指令(如say,score,tp等...)或繼續execute...>
+以下為詳細用法及範例:
+修飾子指令:
+align:
+範例:/execute positioned -1.8 2.3 5.9 align run tp ~ ~ ~
+因為會"向下取整"所以執行這個指令後會將@s tp 到[-1 2 5]
+如果變成align <x/y/z> tp 執行後會變成 將@s tp 到選擇的值 向下取整 如:execute positioned -1.8 2.3 5.9 align x run tp ~ ~ ~
+會變成tp 到[-1 2.3 5.9]
+positioned指位置所以就是將位置訂在1.8 2.3 5.9之後讓他align
+align (<x/y/z>) 之後再加指令或繼續execute
+anchored:
+範例:/execute @s anchored <eyes(眼睛),(feet(腳))> run tp ~ ~ ~
+將@s從腳部tp到眼睛或腳(換句話說填feet會沒有變化)
+anchored之後加(eyes(眼睛)/feet(腳))之後再加指令或繼續execute
+as:
+範例:/execute as @e[type=sheep] run data get
+取得綿羊的資料
+as之後加(玩家ID/UUID/目標選擇器^註2)之後再加指令或繼續execute
+at:
+範例:/execute at @r run setblock ~ ~ ~ stone
+在一名隨機玩家頭上放置一顆石頭
+at之後加(玩家ID/UUID/目標選擇器^註2)之後再加指令或繼續execute
+faceing:
+範例:/execute as @e at @s facing 0 64 0 run tp ~ ~ ~1
+所有的實體都朝著(0, 64, 0)的方向移動一格"不改變自身的朝向"
+faceing之後加(座標(x,y,z))之後再加指令或繼續execute
+in:
+範例:execute in minecraft:the_nether positioned as @s run tp ~ ~ ~
+主世界(16,64,16)位置的玩家執行，會傳送到地獄的(16,64,16)
+*如果沒加positioned as @s 會重送到(2,64,2)因為坐標尺度不同^註15
+in之後加(minecraft:overworld/inecraft:the_end/inecraft:the_nether)之後再加指令或繼續execute
+positioned:
+範例:/execute positioned 0 64 0 run locate Village
+尋找(0, 64, 0)附近的村莊
+這個就很像將座標設在那之後執行該座標
+positioned之後加 座標(x,y,z)/as 座標之後再加指令或繼續execute
+as之後加(玩家ID/UUID/目標選擇器^註2)之後再加指令或繼續execute
+rotated:
+範例:execute as @e[type=sheep] at @s rotated run tp ~ ~ ~1
+讓所有的綿羊以玩家的朝向作為方向移動1格
+他可以訂定水平旋轉角度（正北方為-180.0，正東為-90.0，正南為0.0，正西為90.0，正北以西為179.9，之後回到-180.0）或垂直旋轉角度（豎直上方為-90.0，至豎直下方90.0）。可使用波浪號指定基於目前旋轉角度的相對偏移
+也因此範例可寫成:/execute as @e[type=sheep] at @s rotated ~ ~ tp ~ ~ ~1
+rotated之後加旋轉角度(水平 垂直)/as 旋轉角度(水平 垂直)旋轉角度(水平 垂直) as之後加(玩家ID/UUID/目標選擇器^註2)之後再加指令或繼續execute
+
+條件子指令:
+if block:
+範例:/execute if block 50 50 50 grass_block kill @a
+(如果50 50 50是草方塊則殺死所有玩家)(是就會殺死)
+unless block:
+範例:/execute unless block 50 50 50 grass_block kill @a
+(除非50 50 50是草方塊否則殺死所有玩家)(不是就會殺死)
+if/unless block <座標(x,y,z)> <方塊名> 最後加指令或繼續execute
+if blocks:
+範例:/execute if blocks 50 50 50 70 50 70 10 50 10 all
+判斷(50 50 50 70 50 70)的長方形是否等於以10 50 10為最西北方的長方形(等於=成功)
+執行成功或失敗圖示如^圖6
+unless blocks:
+/execute unless blocks 50 50 50 70 50 70 10 50 10 all
+判斷(50 50 50 70 50 70)的長方形是否等於以10 50 10為最西北方的長方形(等於=失敗)
+執行成功或失敗圖示如^圖6
+if/unless blocks <x_1 y_1 z_1 x_2 y_2 z_2(長方形區域的對角座標)> <x_3 y_3 z_3(以x_3 y_3 z_3為最西北方的長方形)> all(探測區域內的全部方塊)/masked(忽略源區域內空氣方塊所在的位置)之後直接enter或之後再加指令或繼續execute
+最西北方:即長方形區域內x y z坐標最小處
+if data:
+範例:
+unless data:
+範例:
+if/unless data block <座標(x,y,z)> <資料標籤^註17> 之後再加指令或繼續execute(用於檢查方塊)
+if/unless data entity <單個實體> <資料標籤^註17> 之後再加指令或繼續execute(用於檢查實體)
+if/unless data storage <儲存NBT的命名空間ID> <資料標籤^註17> 之後再加指令或繼續execute(用於檢查儲存NBT)
+if entity:
+範例:/execute if entity 
+unless entity:
+範例:/execute unless entity 
+if/unless entity <目標> 之後再加指令或繼續execute
+if predicate:
+範例:
+unless predicate:
+範例:
+if/unless predicate <述詞^註17> 之後再加指令或繼續execute
+if score:
+範例:
+unless score:
+範例:
+if/unless score <玩家ID/UUID/目標選擇器/自訂目標> <要檢查計分項^註18> 之後加(</<=/=/>=/>) <玩家ID/UUID/目標選擇器/自訂目標> <要被檢查計分項^註18> 之後再加指令或繼續execute
+檢查<玩家1>的<計分項1>的分數與<玩家2>的<計分項2>的分數是否符合運算符的關係。
+if/unless score <玩家ID/UUID/目標選擇器/自訂目標> <要檢查計分項^註18> matches <數值範圍^註19> 之後再加指令或繼續execute
+檢查<目標>的<計分項>的分數是否在指定<數值範圍>內
+
+儲存子指令:
+store result block:
+範例:
+store success block:
+範例:
+store result/success block <目標方塊的坐標> <資料標籤的位置> <資料的類型(byte/short/int(字串)/long/float(浮點數(有小數的數字(如1.12)))/double)> <儲存值的倍率^註20> 之後再加指令或繼續execute
+store result bossbar:
+範例:
+store success bossbar:
+範例:
+store result/success bossbar <boss欄的命名空間ID> <儲存為boss欄的value(目前值)/max(最大值)> 之後再加指令或繼續execute
+store result entity:
+範例:
+store success entity:
+範例:
+store result/success entity <玩家ID/UUID/選擇器> <NBT資料的路徑> <資料的類型(byte/short/int(字串)/long/float(浮點數(有小數的數字(如1.12)))/double)> <儲存值的倍率^註20> 之後再加指令或繼續execute
+store result score:
+範例:
+store success score:
+範例:
+if/unless score <玩家ID/UUID/目標選擇器/自訂目標> <計分項^註18> 之後再加指令或繼續execute
+store result storage:
+範例:
+store success storage:
+範例:
+store result/success storage <命名空間ID> <標籤位置> <資料的類型(byte/short/int(字串)/long/float(浮點數(有小數的數字(如1.12)))/double)> <儲存值的倍率^註20>
+run子指令:
+run:
+範例:
+run <指令>
+以上就是execute的大致教學
+
+experience(xp)(經驗)(1.13 17w45a(experience))(1.0.0 bata1.9-pre-5(xp))
+範例:/experience add 99999999 (point)
+他們的用法完全一樣
+後方加add(增加)/query(查看玩家擁有的經驗值或經驗等級)/set(設定)
+後方加目標
+不可以用@e
+之後加經驗數量(經驗值數量必須在0和2147483647之間)
+最後加levels(等級)point(經驗)
+預設為point
+
+F
+fill(填滿)(1.8 14w13a)
+範例:/fill x_1 y_1 z_1 x_2 y_2 z_2 grass_block (replace)
+開始座標 x,y,z
+結束座標 x,y,z
+方塊名
+destroy(保留清除方塊掉落物)/hollow(填充區域外層的方塊,內部方塊被替換為空氣)/keep(保留原本方塊)/outline(僅用指定方塊替換填充區域外層的方塊)/replace(用指定方塊替換填充區域內所有方塊)
+預設為replace
+hollow/outline填充的區域沒有內部（長、寬、高至少一個不足3方格^圖1）時，與replace相似
+
+forceload(chunk1.13.118w31a~pre-1版)強制使區塊^圖2^註8不斷載入(1.13.1 18w31a~)
+範例:/forceload add -32 -16 -16 0
+1.上面的坐標實際上是方塊坐標。為了強制載入區塊0,0到區塊1,2間的所有區塊（共2×3=6個區塊），玩家應該使用指令/forceload add 0 0 31 47/使用指令/forceload add 0 0 10 30將會載入區塊0,0到區塊0,1（1個區塊在x/z坐標方向包含16×16方塊）。然而/forceload query給出的結果是基於區塊坐標的。
+add(新增區塊)/quqry(如果指定了位置，查詢該區塊是否被強制載入；否則列出世界範圍內被強制載入的區塊)/remove(撤銷指定的起使坐標範圍內的區塊的強制不斷載入)	
+最後加區塊範圍
+
+function(函數)(1.12 per1)		
+/function 123
+後方加function名
+執行處於註13		
+
+G
+gamemode
+後方加		
+survival(生存模式)(1.3.1(12w16a)/
+creative(創造模式)(1.3.1 12w16a)/		
+adventure(冒險模式)(1.3.1 12w16a)/		
+spectator(旁觀者)(1.8 14w05a)/	
+
+gamerule1.4.2(12w32a)(12w32a)	
+! 表格
+announceAdvancements	是否在聊天框中公告玩家進度的達成。	1.12(17w18a)	true/false	TRUE	僅JAVA可用	
+commandBlocksEnabled	指令方塊在遊戲中是否被啟用。	WIKI無記載	true/false	TRUE	僅基岩版可用	
+commandBlockOutput	指令方塊執行指令時是否在聊天框中向管理員顯示。	1.4.2(12w32a)	true/false	FALSE		
+disableElytraMovementCheck	是否讓伺服器停止檢查使用鞘翅玩家的移動速度。有助於減輕因伺服器延遲而導致的飛行卡頓，但有可能導致生存模式下玩家飛行過快（作弊）。	1.9(16w07a)	true/false	FALSE	僅JAVA可用	
+disableRaids	是否停用突襲。	1.14.3(per-3)	true/false	TRUE	僅JAVA可用	
+doDaylightCycle	是否進行日夜交替和月相變化。	1.6.1(13w24a)	true/false	TRUE		
+doEntityDrops	非生物實體是否掉落物品。	1.8.1(pre-1)	true/false	TRUE		
+doFireTick	火是否蔓延及自然熄滅。	1.4.2(12w32a)	true/false	TRUE		
+doInsomnia	夜魅是否在夜晚生成。	1.15( 19w36a)	true/false	FALSE		
+doImmediateRespawn	玩家死亡時是否不顯示死亡介面直接重生。	1.15( 19w36a)	true/false	FALSE		
+doLimitedCrafting	玩家的合成配方是否需要解鎖才能使用。	1.12(17w13a)	true/false	TRUE	僅JAVA可用	
+doMobLoot	生物在死亡時是否掉落物品。	1.4.2(12w32a)	true/false	TRUE		
+doMobSpawning	生物是否自然生成。不影響生怪磚。	1.4.2(12w32a)	true/false	TRUE		
+doPatrolSpawning	控制掠奪者巡邏隊的生成。	1.15.2(pre-1)	true/false	TRUE	僅JAVA可用	
+doTileDrops	方塊被破壞時是否掉落物品。	WIKI無記載	true/false	TRUE		
+doTraderSpawning	控制流浪商人的生成。	1.15.2(per-1)	true/false	TRUE	僅JAVA可用	
+doWeatherCycle	天氣是否變化。	1.11( 16w38a)	true/false	TRUE		
+drowningdamage	玩家是否承受窒息傷害。	1.15( 19w36a)	true/false	TRUE		
+falldamage	玩家是否承受跌落傷害。	1.15( 19w36a)	true/false	TRUE		
+firedamage	玩家是否承受火焰傷害。	1.15( 19w36a)	true/false	TRUE		
+forgiveDeadPlayers	當被激怒的中立生物的目標玩家死亡時，該生物是否恢復中立狀態。	1.16(pre-1)	true/false	TRUE	僅JAVA可用	
+freezedamage	玩家是否承受冰凍傷害。	1.17(20w48a)	true/false	TRUE		
+functioncommandlimit	透過/function指令執行指令的最大數量。	WIKI無記載	true/false	FALSE	僅基岩版可用	
+gameLoopFunction	WIKI無記載	1.12(pre-1)~1.13(17w49b)	WIKI無記載	WIKI無記載		
+keepInventory	玩家死亡後是否保留物品欄物品、經驗（死亡時物品不掉落、經驗不清空）。	1.4.2(12w32a)	true/false	FALSE		
+logAdminCommands	是否在伺服器日誌中記錄管理員使用過的指令。	1.8(14w03a)	true/false	TRUE	僅JAVA可用	
+maxCommandChainLength	決定了連鎖式指令方塊能連鎖執行的總數量。	1.12(17w16b)	整數數值	65536		
+maxEntityCramming	玩家或生物能同時推動其他可推動實體的數量，超過此數量時將承受每半秒3（）的窒息傷害。設定成0可以停用這個規則。此規則影響生存模式和冒險模式的玩家，以及除蝙蝠外的所有生物。可推動實體包括非旁觀者模式玩家、除蝙蝠外的所有生物、船和礦車。	1.11( 16w38a)	整數數值	24	僅JAVA可用
+mobGriefing	生物是否能夠進行破壞性行為，包括苦力怕、殭屍、終界使者、地獄幽靈、凋零怪、終界龍、兔子、羊、村民和雪人是否能放置、修改或破壞方塊，生物是否能撿拾物品，以及喚魔者是否能將藍色的羊變為紅色。這個規則也會影響生物（如殭屍化豬布林和沉屍）尋找海龜蛋的能力。這還將會阻止村民的繁殖。這一遊戲規則不會影響非生物實體，包括TNT和終界水晶。	1.4.2(12w32a)	true/false	TRUE		
+naturalRegeneration	玩家是否能在飢餓值足夠時自然恢復生命值（不影響外部治療效果，如金蘋果、回復狀態效果等）。	1.6.1(13w23a)	true/false	TRUE		
+playersSleepingPercentage	設定跳過夜晚所需的入睡玩家所占"百分比"。設定為0時，1個玩家入睡即可跳過夜晚。設定為大於100的值會使玩家無法透過入睡跳過夜晚。	1.17(20w51a)	整數數值	100	僅JAVA可用	
+pvp	玩家之間能否造成傷害。	WIKI無記載	true/false	TRUE	僅基岩版可用	
+randomTickSpeed	每遊戲刻每區段中隨機的方塊刻發生的頻率（例如植物生長，樹葉腐爛等）。為0時停用隨機刻，較高的數字將增大隨機刻頻率。	1.8(14w17a)	整數數值	3		
+reducedDebugInfo	除錯畫面是否簡化而非顯示詳細資訊；同時影響F3 + B（實體碰撞箱）和F3 + G（區塊邊界）效果的顯示。	(1.14.3後)	true/false	FALSE	僅JAVA可用	
+sendCommandFeedback	玩家執行指令的返回資訊是否在聊天框中顯示。同時影響指令方塊是否儲存指令輸出文字。	1.8(14w26a)	true/false	TRUE		
+showcoordinates	是否在聊天框區域持續實時顯示玩家坐標。	WIKI無記載	true/false	FALSE	僅基岩版可用	
+showDeathMessages	是否在聊天框中顯示玩家的死亡訊息。同樣影響是否在寵物（狼、貓和鸚鵡）死亡時通知它的主人。	1.8(14w10a)	true/false	TRUE		
+spawnRadius	首次進入伺服器的玩家和沒有重生點的死亡玩家在重生時與世界重生點坐標的距離。	1.9(15w51a)	整數數值	10		
+spectatorsGenerateChunks	是否允許旁觀者模式的玩家生成區塊。	1.9(15w37a)	true/false	TRUE	僅JAVA可用	
+tntexplodes	TNT是否會爆炸。	WIKI無記載	true/false	TRUE	僅基岩版可用	
+showtags	是否展示物品可以破壞的方塊列表，以及可以放置於的方塊列表。	WIKI無記載	true/false	TRUE	僅基岩版可用	
+universalAnger	被激怒的中立生物是否攻擊附近任何玩家（而非只攻擊激怒它們的玩家）。當forgiveDeadPlayers關閉時會有更好的效果	1.16(pre-1)	true/false	FALSE	僅JAVA可用
+
+give
+名稱加在give後方
+後方加物品
+物品後方加屬性(如:附模)(可省略)
+最後加數量(省略為1)
+
+以下為範例:
+武器
+給予自己一把帶有鋒利x的鑽石劍	
+/give @s minecraft:diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:10}]} 1
+給予所有玩家一瓶帶有擊退x效果的2級腐朽藥水：
+/give @a potion{Enchantments:[{id:"minecraft:knockback",lvl:10}],CustomPotionEffects:[{Id:20,Amplifier:1}]} 1
+名稱
+給予最近的玩家一把鑽石劍，物品附加描述「神劍」：
+/give @p minecraft:diamond_sword{display:{Lore:["\"神劍\""]}} 1
+物品
+給予所有玩家一瓶夜視藥水：
+/give @a potion{Potion:"minecraft:night_vision"
+附模
+給予自己一把帶有鋒利x的鑽石劍
+/give @s minecraft:diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:10}]} 2
+名稱顏色
+其他
+給予自己一塊能放置在泥土上的、即使在冒險模式中也能破壞石英方塊的鑽石方塊：
+/give @s minecraft:diamond_block{CanPlaceOn:["minecraft:dirt"],CanDestroy:["minecraft:quartz_block"]} 1
+給予自己一個在冒險模式下可以破壞草地的鐵鏟：
+/give @s iron_shovel{CanDestroy:["minecraft:grass"]} 1
+給予自己一個在冒險模式下可以放置在石頭上的草地：
+/give @s grass_block 1 {CanPlaceOn:["minecraft:stone"]}
+
+H
+Help(指令大全)(無記載)		
+範例:/help
+後方可加更詳細的指令
+範例:/help advancement
+也可加該指令的子指令^註9
+範例:/help advancement grant
+
+i
+item(修改方塊或實體物品欄內的物品)(1.17	20w46a(取代/replaceitem)~)
+
+J
+jfr(執行或停止jfr(Java FlightRecorder)分析資料和某些自訂事件)(1.18 21w37a~)
+範例:/jfr start
+後方加start或stop
+分析的結果摘要會以JSON格式寫入日誌以及debug資料夾^註11中
+
+K
+kick(剔除玩家)(v1.0.16~)
+後方加名稱		
+後方加原因(可加可不加)
+kill(殺死玩家)(1.3.1(12w16a))
+後方加名稱
+後方可加目標選擇器
+
+L
+(暫無指令)
+
+M
+me(顯示一條關於你自己的資訊)(無記載)
+範例:/me 
+後方加動作 必須為字串
+msg(毃毃話)(Alpha v1.0.16_02~)
+範例:/msg xxx hihi
+後方打名稱後空格打聊天內容
+N
+(暫無指令)
+O
+(暫無指令)
+
+P
+particle(指定位置顯示粒子效果)(1.8 14w04a)
+範例:
+後面加
+pardon(移除黑名單的名字)(Alpha v1.0.16~)
+範例:/pardon xxxxx
+後方加名稱
+!!只在伺服器有用!!
+pardon-ip(移除黑名單的ip)(Alpha v1.0.16~)			
+範例:/pardon-ip 123456789
+!!只在伺服器有用!!
+placefeature()()
+playsound(播放一段聲音^註12)(1.6.1 pre~)
+publish()()
+Q
+(暫無指令)
+
+R
+recipe()()
+reload(重新整理)()
+replaceitem(替換方塊或實體物品欄內的物品。)(1.8 14w26a~1.17 20w45a)
+
+S
+say(說話)()
+schedule()()
+scoreboard(記分板)(1.5 13w04a)
+seed(查看種子碼)()
+setblock()()
+setwoldspawn(設定世界重生點)()
+範例:/setwoldspawn x_1 y_1 z_1
+後方加座標(x,y,z)
+spawnpoint(重生點)()
+範例:/spawnpoint @s x_1 y_1 z_1
+後方加名稱
+最後加座標(x,y,z)
+spectate()()
+spreadplayers()()
+stopsound(停止一段聲音^註12)(1.9.3 pre2~)
+summon(召喚生物)()
+T
+tell(聊天)
+範例:/tell xxx hihi
+後方打名稱後空格打聊天內容
+tp
+後方打名稱後空格打名稱(TP到後名稱)(範例:/tp xxx xxxx)或留白(TP到該名稱)(範例:/tp xxxxx)
+title(大字幕)()
+範例:/title @a title {"text":"hihi"}
+後方加玩家或目標
+之後加
+後面加要顯示的文字
+
+U
+(暫無指令)
+V
+(暫無指令)
+
+W
+weather(天氣)(1.4.2 12w32a~)	
+範例:/weather rain (300)	
+clear(晴天)/rain(雨天)/thunder(雷雨)		
+持續時間(秒)1~1000000(一百萬)之間的整數數值
+預設為300(5分鐘)
+worldborder()()
+
+x
+xp^註10(經驗)(1.0.0 bata 1.9-pre-5)
+同experience
+
+Y
+(暫無指令)
+z
+(暫無指令)
+
+註解:
+註1:名稱包含@a(全部玩家)、@p(最近玩家)、@e(全部實體)、@s(自己)、@r(隨機玩家)
+
+註2:是用玩家ID就不能加 只要是加目標就"可"(不是一定要)加目標選擇器
+! 表格3
+advancements	玩家擁有進度		
+distance	距離		
+dx,dy,dz	位於(x,y,z)和(x,y,z)+(dx,dy,dz)之間的距離
+gamemode	遊戲模式			
+level	經驗等級			
+limit	最大實體回傳數			
+name	實體名稱			
+nbt	實體的數據標籤				
+predicate	述詞				
+scores	記分項分數				
+sort	對實體進行排序				
+tag	計分板標籤				
+team	隊伍名稱				
+type	實體類型(僅在@e有效)
+x,y,z	坐標				
+x_rotation	垂直旋轉角度				
+y_rotation	水平旋轉角度				
+
+註3:
+
+註4:範例:1-1-1-1-1
+
+註5:
+概述:一個會用到:文字、以翻譯文字、記分板、實體名稱、按鍵鍵位以及NBT值的奇怪東東
+範例:
+
+註6:give 藥水排版				
+ tag：目前物品的tag標籤。				
+第1種方式				
+ CustomPotionEffects：目前藥水或藥水箭所含有的自訂狀態效果。從此標籤獲得效果的藥水或藥水箭會分別被命名為「水瓶」或「飛濺之箭」。				
+! 表4
+ Id：效果的數字ID。	效果	名稱	數字ID	
+	速度	speed	1	
+	緩慢	slowness	2	
+	挖掘加速	haste	3	
+	挖掘疲勞	mining_fatigue	4	
+	力量	strength	5	
+	立即治療	instant_health	6	
+	立即傷害	instant_damage	7	
+	跳躍提升	jump_boost	8	
+	噁心	nausea	9	
+	回復	regeneration	10	
+	抗性	resistance	11	
+	抗火	fire_resistance	12	
+	水下呼吸	water_breathing	13	
+	隱形	invisibility	14	
+	失明	blindness	15	
+	夜視	night_vision	16	
+	飢餓	hunger	17	
+	虛弱	weakness	18	
+	中毒	poison	19	
+	凋零	wither	20	
+	生命值提升	health_boost	21	
+	吸收	absorption	22	
+	飽食	saturation	23	
+	發光	glowing	24	
+	懸浮	levitation	25	
+	幸運	luck	26	
+	霉運	unluck	27	
+	緩降	slow_falling	28	
+	海靈祝福	conduit_power	29	
+	海豚悠游	dolphins_grace	30	
+	不祥之兆	bad_omen	31	
+	村莊英雄	hero_of_the_village	32
+
+註7:鐵砧機制
+鐵砧具有4種基本功能：
+1.重新命名任何物品，包括普通的方塊
+2.使用其合成原料來修復受損物品(還是有例外如鐵錠修復鎖鏈甲、夜魅皮膜修復鞘翅
+3.合併兩個相同類型和材質
+4.將工具與附魔書結合，將附魔轉移到工具上
+附魔上限在以下列表
+這個指令要遵守鐵砧機制所以上限一樣(可以把他想成是一個指令版的鐵砧)
+所以也不能亂附魔
+向木棒不能付擊退，鋤頭不能付鋒利等等
+
+註8:區塊
+區塊算法:
+區塊的x坐標：Floor(x坐標/16)
+區塊的z坐標：Floor(z坐標/16)
+Floor是取得"小於"等於指定數字的"最大整數"
+例如:
+1.如果x是27，z是-15，區塊將會是(Floor(27/16)(因27/16=1.~所以小於該數的最大整數是1),Floor(-15/16)(因-15/16=0.~所以小於該數的最大整數是1))區塊，這意味著玩家在區塊(1,-1)
+2.如果x是30，z是20，區塊將會是(Floor(30/16)(因30/16=1.~所以小於該數的最大整數是1),Floor(20/16)(因27/16=1.~所以小於該數的最大整數是1))區塊，這意味著玩家在區塊(1,1)
+
+註9:子指令
+原指令下的附屬指令 例如:/gamerule keepInventory 的"keepInventory"就是子指令
+
+註10:
+在(1.4.2 12w39a)之前xp的上限只有5000
+
+註11:
+以及debug資料夾^圖4
+
+註12:聲音列表:
+
+註13:
+名稱:資料夾格式是namespace:path/to/function/file或#namespace:path/to/function/tag。沒有#前綴的namespace:path/to/function/file格式會執行[data_pack]/data/namespace/functions/path/to/function/file.mcfunction處的函數。有#前綴的#namespace:path/to/function/tag格式會執行所有[data_pack]/data/namespace/tags/functions/path/to/function/tag.json標籤下的函數。
+
+註14:
+親水性	aqua_affinity
+節肢剋星	bane_of_arthropods
+綁定詛咒	binding_curse
+爆炸保護	blast_protection
+喚雷	channeling
+深海漫遊	depth_strider
+效率	efficiency
+輕盈	feather_falling
+燃燒	fire_aspect
+火焰保護	fire_protection
+火焰	flame
+幸運	fortune
+冰霜行者	frost_walker
+魚叉	impaling
+無限	infinity
+擊退	knockback
+掠奪	looting
+忠誠	loyalty
+海洋的祝福	luck_of_the_sea
+魚餌	lure
+修補	mending
+分裂箭矢	multishot
+貫穿	piercing
+強力	power
+投射物保護	projectile_protection
+保護	protection
+衝擊	punch
+快速上弦	quick_charge
+水中呼吸	respiration
+波濤	riptide
+鋒利	sharpness
+絲綢之觸	silk_touch
+不死剋星	smite
+靈魂疾走	soul_speed
+橫掃之刃	sweeping
+迅捷潛行    swift_sneak
+尖刺	thorns
+耐久	unbreaking
+消失詛咒	vanishing_curse
+
+註15:述詞
+
+註16:座標尺度
+大家都知道在地獄走1格=在主世界走8格(吧 所以從主世界傳送到地獄時，執行位置（僅X/Z軸部分）會除以8，從地獄傳送到主世界則會乘以8
+
+註17:述詞
+
+註18:計分項
+
+註19:數值範圍的打法
+0：精確匹配0
+..0：小於等於0
+0..：大於等於0
+0..1：0與1之間(含)
+
+註20:倍率
+
+
+其他:
+註1:布琳值=true or false
+
+參考文獻:
+指令:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4?variant=zh-tw
+
+advancement:
+https://minecraft.fandom.com/zh/wiki/%E6%95%99%E7%A8%8B/%E8%BF%9B%E5%BA%A6%E6%8C%87%E5%8D%97?variant=zh-tw#-.7Bzh-cn:.E8.84.86.E5.BC.B1.E7.9A.84.E5.90.8C.E7.9B.9F.3Bzh-tw:.E4.B8.8D.E5.AE.89.E7.9A.84.E5.90.8C.E7.9B.9F.3Bzh-hk:.E6.9C.89.E5.85.A7.E9.AC.BC.EF.BC.81.7D-
+
+attribute:
+https://minecraft.fandom.com/zh/wiki/%E5%B1%9E%E6%80%A7?variant=zh-tw
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/attribute
+
+bossbar:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/bossbar?variant=zh-tw
+
+clone:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/clone?variant=zh-tw
+
+enchant:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/enchant?variant=zh-tw
+
+experience&xp:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/experience?variant=zh-tw
+
+execute:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/execute?variant=zh-tw#run.E5.AD.90.E5.91.BD.E4.BB.A4
+
+function:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/function?variant=zh-tw
+
+forceload:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/forceload?variant=zh-tw
+
+fill:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/fill?variant=zh-tw
+
+item:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/item?variant=zh-tw
+
+jfr:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/jfr?variant=zh-tw
+
+me:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/me?variant=zh-tw
+
+msg:
+https://minecraft.fandom.com/wiki/Commands/msg#History
+
+replaceitem:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/replaceitem?variant=zh-tw
+
+sound:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/playsound?variant=zh-tw
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/stopsound
+https://minecraft.fandom.com/zh/wiki/Sounds.json?variant=zh-tw
+
+scoreboard:
+https://minecraft.fandom.com/zh/wiki/%E8%AE%B0%E5%88%86%E6%9D%BF?variant=zh-tw
+
+predicate:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E4%BB%A4/particle?variant=zh-tw
+
+註8:區塊:
+https://minecraft.fandom.com/zh/wiki/%E5%8C%BA%E5%9D%97?variant=zh-tw
+
+格式化代碼(顏色代碼)
+https://minecraft.fandom.com/zh/wiki/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81?variant=zh-tw
+
+命名空間ID:
+https://minecraft.fandom.com/zh/wiki/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4ID
+
+原始JSON文字格式:
+https://minecraft.fandom.com/zh/wiki/%E5%8E%9F%E5%A7%8BJSON%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F
+----------------------------------------------
+如有錯誤可至(表單)或(gmail)或(dc)告訴我做錯誤勘正
+除部分範例外,如有雷同純屬巧合

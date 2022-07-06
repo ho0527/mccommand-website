@@ -1,0 +1,54 @@
+.word{
+    line-height:4px;
+    /* text-align:center; */
+}
+.title{
+    line-height:8px;
+    /* text-align: center; */
+}
+.title2{
+    line-height:8px;
+    padding-bottom:15px;
+    /* text-align: center; */
+}
+
+.title3{
+    line-height:15px;
+    /* padding-bottom:30px; */
+    /* text-align: center; */
+}
+
+.body{
+    color: rgb(255, 255, 255);
+}
+
+.button{
+    background-color: red;
+    color: white;
+    line-height: 4px;
+    text-align: center;
+    height: 50px;
+    width: 350px;
+    border: none;
+    border-radius: 1px;
+}
+
+.button:hover{
+    background: rgb(255, 97, 97);
+}
+
+.button2{
+    background-color: red;
+    color: white;
+    line-height: 4px;
+    text-align: center;
+    height: 35px;
+    width: 200px;
+    border: none;
+    border-radius: 1px;
+    text-align: center;
+}
+
+.button2:hover{
+    background: rgb(255, 97, 97);
+}

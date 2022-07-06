@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        </meta>
+        <title>
+            minecraft commend F
+        </title>
+        <link rel="stylesheet" href="!minecraft commend.css">
+    </head>
+
+    <body bgcolor="black">
+        <h1 class="main_title">F</h1>
+        <h4 class="main_title"><a href="../ZH_TWblack\.html">返回主頁</a></h4>
+
+        <h2 class="commend_title">fill</h2>
+        <h3 class="commend_depiction">fill(填滿)(1.8 14w13a)</h3>
+        <h3 class="commend_grammar">語法:/fill {x<sub>1</sub> y<sub>1</sub> z<sub>1</sub>} {x<sub>2</sub> y<sub>2</sub> z<sub>2</sub>} {方塊名} (*replace* | destroy | hollow | keep | outline)
+        </h3>
+        <h3 class="commend_example">範例:/fill x<sub>1</sub> y<sub>1</sub> z<sub>1</sub> x<sub>2</sub> y<sub>2</sub> z<sub>2</sub> grass_block (replace)        
+        </h3>
+        <h3 class="commend_detailed">
+        開始座標 x,y,z<br>
+        結束座標 x,y,z<br>
+        方塊名<br>
+        destroy(保留清除方塊掉落物)/hollow(填充區域外層的方塊,內部方塊被替換為空氣)/keep(保留原本方塊)/outline(僅用指定方塊替換填充區域外層的方塊)/replace(用指定方塊替換填充區域內所有方塊)<br>
+        預設為replace<br>
+        hollow/outline填充的區域沒有內部（長、寬、高至少一個不足3方格^圖1）時，與replace相似<br>
+        </h3>
+
+        <h2 class="commend_title">forceload</h2>
+        <h3 class="commend_depiction">forceload(chunk1.13.118w31a~pre-1版)強制使區塊^圖2^註8不斷載入(1.13.1 18w31a~)</h3>
+        <h3 class="commend_grammar">語法:/forceload {x<sub>1</sub> z<sub>1</sub>}  {x<sub>2</sub> z<sub>2</sub>}<h3>
+        <h3 class="commend_example">範例:/forceload add -32 -16 -16 0</h3>
+        <h3 class="commend_detailed">
+        1.上面的坐標實際上是方塊坐標。為了強制載入區塊0,0到區塊1,2間的所有區塊（共2×3=6個區塊），玩家應該使用指令/forceload add 0 0 31 47/使用指令/forceload add 0 0 10
+30將會載入區塊0,0到區塊0,1（1個區塊在x/z坐標方向包含16×16方塊）。然而/forceload query給出的結果是基於區塊坐標的。<br>
+        add(新增區塊)/quqry(如果指定了位置，查詢該區塊是否被強制載入；否則列出世界範圍內被強制載入的區塊)/remove(撤銷指定的起使坐標範圍內的區塊的強制不斷載入)<br>
+        最後加區塊範圍<br>
+        </h3>
+
+        <h2 class="commend_title">function</h2>
+        <h3 class="commend_depiction">function(函數)(1.12 per1)</h3>
+        <h3 class="commend_grammar">語法:/function {function名}</h3>
+        <h3 class="commend_example">範例:/function 123</h3>
+        <h3 class="commend_detailed">
+        後方加function名<br>
+        執行處於<sup>註13</sup>
+        </h3>
+
+        <!-- <h2 class="commend_title"></h2>
+        <h3 class="commend_depiction"></h3>
+        <h3 class="commend_grammar">語法:</h3>
+        <h3 class="commend_example"></h3>
+        <h3 class="commend_detailed"></h3> -->
+
+        <class class="main_depiction">
+            <h2><a href="annotation.html">註解</a></h2>
+        </class>
+    </body>
+
+</html>
